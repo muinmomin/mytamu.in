@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="../static/mainscript.js"></script>
+</head>
+<body>
+    <h1>{{ course }}</h1>
+    <div id="allcourses"> </div>
+</body>
+<script>
+    var c_avg = {{ c_avg|tojson }};
+    var c_allprofs = {{ c_allprofs|tojson }};
+    for(var i = 0; i < c_allprofs.length; i++) {
+        document.getElementById("allcourses").innerHTML += c_allprofs[i] + "<br>";
+    }
+</script>
+</html>

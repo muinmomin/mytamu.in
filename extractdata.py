@@ -49,11 +49,15 @@ for x in range(len(all_data)):
 def search_course(c):
     course = c.upper()
     try:
-        print(course + " AVERAGE: ", end="")
-        print(courses_combined[course])
+        c_avg = courses_combined[course]
+        c_allprofs = []
         for key in sorted(courses_profs):
             if course in key:
-                print(key + ": ", end="")
-                print(courses_profs.get(key))
+                temp = []
+                for stat in courses_profs.get(key):
+                    temp.append(stat)
+                temp.insert(0, key)
+                c_allprofs.append(temp)
+        return c_avg, c_allprofs
     except KeyError:
-        print("Course not found.")
+        return "Course not found.", "Course not found."

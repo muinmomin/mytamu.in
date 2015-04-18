@@ -1,3 +1,6 @@
-/**
- * Created by Muin on 4/17/15.
- */
+function showResults() {
+    $.ajax({
+        type: "POST",
+        url: "/results"
+    });
+}

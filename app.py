@@ -1,6 +1,6 @@
 __author__ = 'Muin'
 from flask import Flask, render_template, request, jsonify
-#import extractdata
+import extractdata
 
 app = Flask(__name__)
 
@@ -9,10 +9,14 @@ def index():
     return render_template("index.html")
 
 
-#get_results
-
-
-#show_results
+@app.route("/results", methods=["GET", "POST"])
+def results():
+    if request.method == "POST":
+        course = request.form["course"]
+        c_avg, c_allprofs = extractdata.search_course(course)
+        return render_template("results.html", course=course, c_avg=c_avg, c_allprofs=c_allprofs)
+    else:
+        return "Error."
 
 
 if __name__ == "__main__":
