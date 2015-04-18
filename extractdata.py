@@ -57,8 +57,3 @@ def search_course(c):
                 print(courses_profs.get(key))
     except KeyError:
         print("Course not found.")
-
-
-while True:
-    searchtest = input("Enter course: ")
-    search_course(searchtest)
