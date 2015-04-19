@@ -3,18 +3,54 @@
 <head lang="en">
     <meta charset="UTF-8">
     <title></title>
-    <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
     <script src="../static/mainscript.js"></script>
 </head>
 <body>
     <h1>{{ course }}</h1>
     <div id="allcourses"> </div>
+
+
+    <!-- table -->
+    <table id="rtable" border="1" style="width:100%">
+        <tr>
+            <td>Course</td>
+            <td>Teacher</td>
+            <td>A</td>
+            <td>B</td>
+            <td>C</td>
+            <td>D</td>
+            <td>F</td>
+            <td>GPA</td>
+        </tr>
+    </table>
+
+
 </body>
+
+
 <script>
+
+
+
     var c_avg = {{ c_avg|tojson }};
     var c_allprofs = {{ c_allprofs|tojson }};
     for(var i = 0; i < c_allprofs.length; i++) {
-        document.getElementById("allcourses").innerHTML += c_allprofs[i] + "<br>";
+        document.getElementById("rtable").innerHTML +=
+                "<tr>" +
+                "<td>"+c_allprofs[i][0]+"</td>" +
+                "<td>"+c_allprofs[i][7]+"</td>" +
+                "<td>"+c_allprofs[i][1]+"</td>" +
+                "<td>"+c_allprofs[i][2]+"</td>" +
+                "<td>"+c_allprofs[i][3]+"</td>" +
+                "<td>"+c_allprofs[i][4]+"</td>" +
+                "<td>"+c_allprofs[i][5]+"</td>" +
+                "<td>"+c_allprofs[i][6]+"</td>" +
+                "</tr>"
     }
+
+
+
 </script>
+
+
 </html>

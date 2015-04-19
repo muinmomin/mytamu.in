@@ -12,8 +12,10 @@ def index():
 @app.route("/results", methods=["GET", "POST"])
 def results():
     if request.method == "POST":
-        course = request.form["course"]
+        course = request.form["course"].upper()
         c_avg, c_allprofs = extractdata.search_course(course)
+        if "Course not found." in c_avg:
+            return "Error."
         return render_template("results.html", course=course, c_avg=c_avg, c_allprofs=c_allprofs)
     else:
         return "Error."
