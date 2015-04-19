@@ -1,5 +1,6 @@
 from bs4 import BeautifulSoup
-from htmlstring import s
+from rawdata.htmlstring import s
+
 
 soup = BeautifulSoup(s)
 td = soup.get_text().split("\n")
