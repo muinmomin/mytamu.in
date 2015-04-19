@@ -1,9 +1,5 @@
 from bs4 import BeautifulSoup
-from rawdata.htmlstring import s
-
-
-soup = BeautifulSoup(s)
-td = soup.get_text().split("\n")
+from rawdata.EN_F14 import s
 
 
 def is_course(c):
@@ -16,6 +12,8 @@ def is_teacher(c):
         return True
 
 
+soup = BeautifulSoup(s)
+td = soup.get_text().split("\n")
 all_data = []
 index = 0
 while index < len(td):
